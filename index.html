@@ -1,160 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Elgamily | Frontend Developer</title>
   <meta name="description" content="Elgamily | Frontend Developer Portfolio showcasing projects, skills, and contact information." />
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="36043.png" />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
-  <!-- AOS Animation CSS -->
+  <!-- AOS Animation -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #f9f9f9;
+      margin: 0;
+    }
+
+    a,
+    button,
+    .card {
+      transition: all 0.3s ease;
+    }
+
+    /* Header & Navbar */
+    header {
+      transition: all 0.3s ease;
+      padding: 1rem 0;
+      background-color: #fff;
+      box-shadow: none;
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+    }
+
+    header.shrink {
+      padding: 0.5rem 0 !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff !important;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #0dcaf0;
+    }
+
+    .navbar-brand span {
+      color: #333;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: #333 !important;
+      cursor: pointer;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #0dcaf0 !important;
+      font-weight: 700;
+    }
+
+    /* Profile Image */
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1rem;
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: #222;
+    }
+
+    /* Buttons */
+    .btn-info {
+      background-color: #0dcaf0;
+      border: none;
+      font-weight: 600;
+    }
+
+    .btn-info:hover {
+      background-color: #0bbbd7;
+      animation: pulse 0.6s ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Cards */
+    .card {
+      border: none;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-title {
+      font-weight: 600;
+      color: #0dcaf0;
+    }
+
+    .card-img-top {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    /* Skills Icons */
+    .skills-icon {
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+
+    .skills-icon:hover,
+    .skills-icon:focus {
+      transform: rotate(15deg) scale(1.2);
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #222;
+      color: #eee;
+      padding: 1.5rem 0;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer .btn-outline-light {
+      border-color: rgba(255, 255, 255, 0.7);
+      color: white;
+      font-weight: 500;
+    }
+
+    footer .btn-outline-light:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Social Icons hover */
+    .social-icons a {
+      transition: transform 0.3s ease, color 0.3s ease;
+      display: inline-block;
+    }
+
+    .social-icons a:hover,
+    .social-icons a:focus {
+      transform: translateY(-5px);
+      color: #0dcaf0 !important;
+      outline: none;
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- Header -->
-  <header class="py-3 border-bottom">
-    <nav class="container d-flex justify-content-between align-items-center">
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
-        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-        <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-      <div class="d-flex gap-3">
-        <a href="https://github.com/elgamilyER9" target="_blank" aria-label="GitHub"><i class="fab fa-github fa-lg"></i></a>
-        <a href="https://linkedin.com/in/elgamily-ramadan" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
-        <a href="mailto:elgamilyramadan@gmail.com" aria-label="Email"><i class="fas fa-envelope fa-lg"></i></a>
+  <header id="header">
+    <nav class="navbar navbar-expand-md container">
+      <a class="navbar-brand" href="#home">Elgamily<span>.</span></a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0" id="navbarNav">
+          <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="d-none d-md-flex gap-3 ms-4">
+          <a href="https://github.com/elgamilyER9" target="_blank" rel="noopener noreferrer"
+            aria-label="GitHub"><i class="fab fa-github fa-lg text-dark"></i></a>
+          <a href="https://linkedin.com/in/elgamily-ramadan" target="_blank" rel="noopener noreferrer"
+            aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg text-dark"></i></a>
+          <a href="mailto:elgamilyramadan@gmail.com" aria-label="Email"><i
+              class="fas fa-envelope fa-lg text-dark"></i></a>
+        </div>
       </div>
     </nav>
   </header>
 
-  <!-- Home Section -->
-  <section id="home" class="section text-center py-5" data-aos="fade-up">
-    <div class="container">
-      <img src="WhatsApp Image 2025-06-03 at 06.54.23_e356ffb9.jpg" alt="Elgamily profile picture" class="profile-img rounded-circle mb-3 shadow" style="width: 160px;" data-aos="zoom-in" />
-      <h1 class="mb-2">Hi, I'm <span class="text-info">Elgamily</span></h1>
-      <p class="lead">A passionate Frontend Developer crafting responsive and modern web interfaces.</p>
-      <a href="#projects" class="btn btn-outline-info mt-3">View Projects</a>
-    </div>
-  </section>
+  <main>
 
-  <!-- About Section -->
-  <section id="about" class="section bg-light py-5" data-aos="fade-right">
-    <div class="container">
-      <h2 class="text-center mb-4">About Me</h2>
-      <p class="text-center">
-        I'm a Computer Science student at Delta University. I love building user-friendly,
-        high-performance web apps using HTML, CSS, JavaScript, and React.
-      </p>
-    </div>
-  </section>
+    <!-- Home -->
+    <section id="home" class="py-5 bg-light text-center" data-aos="fade-up" tabindex="0" aria-label="Home section">
+      <div class="container">
+        <img src="WhatsApp Image 2025-06-03 at 06.54.23_e356ffb9.jpg" alt="Elgamily's Profile Picture" class="profile-img" />
+        <h1 class="display-5 fw-bold" data-aos="fade-down" data-aos-delay="200">Hi, I'm <span class="text-info">Elgamily</span></h1>
+        <p class="lead text-muted" data-aos="fade-up" data-aos-delay="400">Frontend Developer crafting modern, responsive web experiences.</p>
+        <a href="#projects" class="btn btn-outline-info btn-lg mt-3 px-4" role="button" aria-label="Explore Projects" data-aos="zoom-in" data-aos-delay="600">Explore Projects</a>
+      </div>
+    </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="section py-5" data-aos="fade-left">
-    <div class="container">
-      <h2 class="text-center mb-4">Skills</h2>
-      <ul class="list-unstyled row text-center">
-        <li class="col-sm-6 col-md-3 mb-2">HTML5</li>
-        <li class="col-sm-6 col-md-3 mb-2">CSS3 / Sass</li>
-        <li class="col-sm-6 col-md-3 mb-2">Bootstrap</li>
-        <li class="col-sm-6 col-md-3 mb-2">JavaScript (ES6+)</li>
-        <li class="col-sm-6 col-md-3 mb-2">React.js</li>
-        <li class="col-sm-6 col-md-3 mb-2">API Integration</li>
-        <li class="col-sm-6 col-md-3 mb-2">Git & GitHub</li>
-      </ul>
-    </div>
-  </section>
+    <!-- About -->
+    <section id="about" class="py-5" data-aos="fade-right" tabindex="0" aria-label="About me section">
+      <div class="container text-center">
+        <h2 class="section-title" data-aos="fade-up">About Me</h2>
+        <p class="fs-5 mx-auto" style="max-width: 700px;" data-aos="fade-up" data-aos-delay="200">I'm a passionate Frontend Developer and Computer Science
+          student at Delta University. I enjoy creating sleek, accessible, and high-performance web applications using
+          the latest web technologies.</p>
+      </div>
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="section bg-light py-5" data-aos="zoom-in">
-    <div class="container">
-      <h2 class="text-center mb-4">Projects</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm" data-aos="fade-up">
-            <img src="screencapture-home-gold-iota-vercel-app-properties-2025-06-04-03_02_08.png" class="card-img-top" alt="Real estate project" style="height: 260px; object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">Real Estate Site</h5>
-              <a href="https://home-gold-iota.vercel.app/" target="_blank" class="btn btn-outline-primary w-100">View Project</a>
+    <!-- Skills -->
+    <section id="skills" class="py-5 bg-light" data-aos="fade-left" tabindex="0" aria-label="Skills section">
+      <div class="container">
+        <h2 class="section-title text-center mb-4" data-aos="fade-up">Skills</h2>
+        <div class="row text-center gy-4">
+          <article class="col-6 col-md-3" aria-label="HTML5 skill" data-aos="zoom-in" data-aos-delay="100">
+            <i class="fab fa-html5 fa-2x text-danger skills-icon" aria-hidden="true" tabindex="0"></i>
+            <p>HTML5</p>
+          </article>
+          <article class="col-6 col-md-3" aria-label="CSS3 and Sass skill" data-aos="zoom-in" data-aos-delay="200">
+            <i class="fab fa-css3-alt fa-2x text-primary skills-icon" aria-hidden="true" tabindex="0"></i>
+            <p>CSS3 / Sass</p>
+          </article>
+          <article class="col-6 col-md-3" aria-label="Bootstrap skill" data-aos="zoom-in" data-aos-delay="300">
+            <i class="fab fa-bootstrap fa-2x text-purple skills-icon" aria-hidden="true" tabindex="0"></i>
+            <p>Bootstrap</p>
+          </article>
+          <article class="col-6 col-md-3" aria-label="JavaScript skill" data-aos="zoom-in" data-aos-delay="400">
+            <i class="fab fa-js fa-2x text-warning skills-icon" aria-hidden="true" tabindex="0"></i>
+            <p>JavaScript</p>
+          </article>
+          <article class="col-6 col-md-3" aria-label="React skill" data-aos="zoom-in" data-aos-delay="500">
+            <i class="fab fa-react fa-2x text-info skills-icon" aria-hidden="true" tabindex="0"></i>
+            <p>React</p>
+          </article>
+          <article class="col-6 col-md-3" aria-label="API Integration skill" data-aos="zoom-in" data-aos-delay="600">
+            <i class="fas fa-plug fa-2x text-success skills-icon" aria-hidden="true" tabindex="0"></i>
+            <p>API Integration</p>
+          </article>
+          <article class="col-6 col-md-3" aria-label="Git skill" data-aos="zoom-in" data-aos-delay="700">
+            <i class="fab fa-git-alt fa-2x text-danger skills-icon" aria-hidden="true" tabindex="0"></i>
+            <p>Git</p>
+          </article>
+          <article class="col-6 col-md-3" aria-label="Figma skill" data-aos="zoom-in" data-aos-delay="800">
+            <i class="fab fa-figma fa-2x text-secondary skills-icon" aria-hidden="true" tabindex="0"></i>
+            <p>Figma</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-5" tabindex="0" aria-label="Projects section">
+      <div class="container">
+        <h2 class="section-title text-center mb-4" data-aos="fade-up">Projects</h2>
+        <div class="row gy-4">
+          <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="card h-100 shadow-sm">
+              <img src="screencapture-home-gold-iota-vercel-app-properties-2025-06-04-03_02_08.png" class="card-img-top" alt="Project 1 Image" />
+              <div class="card-body">
+                <h5 class="card-title">Responsive Portfolio Website</h5>
+                <p class="card-text">A modern and responsive portfolio site built with Bootstrap and AOS animation.</p>
+                <a href="https://github.com/elgamilyER9/portfolio" class="btn btn-info" target="_blank" rel="noopener noreferrer">View </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-            <img src="screencapture-bondi-build-vercel-app-2025-06-04-03_33_16.png" class="card-img-top" alt="Bondi Template" style="height: 260px; object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">Bondi Landing Page</h5>
-              <a href="https://bondi-build.vercel.app/" target="_blank" class="btn btn-outline-primary w-100">View Project</a>
+          <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="card h-100 shadow-sm">
+              <img src="screencapture-bondi-build-vercel-app-2025-06-04-03_33_16.png" class="card-img-top" alt="Project 2 Image" />
+              <div class="card-body">
+                <h5 class="card-title">E-commerce Web App</h5>
+                <p class="card-text">A full-featured e-commerce web app with React, Redux, and Stripe payment integration.</p>
+                <a href="https://github.com/elgamilyER9/ecommerce" class="btn btn-info" target="_blank" rel="noopener noreferrer">View </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm" data-aos="fade-up" data-aos-delay="200">
-            <img src="screencapture-nikeee-ten-vercel-app-products-2025-06-04-03_36_04.png" class="card-img-top" alt="Nike E-commerce site" style="height: 260px; object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">Nike E-commerce</h5>
-              <a href="https://nikeee-ten.vercel.app/" target="_blank" class="btn btn-outline-primary w-100">View Project</a>
+          <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="card h-100 shadow-sm">
+              <img src="screencapture-nikeee-ten-vercel-app-products-2025-06-04-03_36_04.png" class="card-img-top" alt="Project 3 Image" />
+              <div class="card-body">
+                <h5 class="card-title">Task Manager App</h5>
+                <p class="card-text">A productivity task manager built with JavaScript, localStorage, and Bootstrap.</p>
+                <a href="https://github.com/elgamilyER9/taskmanager" class="btn btn-info" target="_blank" rel="noopener noreferrer">View </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section py-5 text-center" data-aos="fade-up">
-    <div class="container">
-      <h2 class="mb-4">Contact Me</h2>
-      <div class="d-flex justify-content-center gap-4">
-        <a href="https://github.com/elgamilyER9" target="_blank" aria-label="GitHub"><i class="fab fa-github fa-2x"></i></a>
-        <a href="https://linkedin.com/in/elgamily-ramadan" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
-        <a href="mailto:elgamilyramadan@gmail.com" aria-label="Email"><i class="fas fa-envelope fa-2x"></i></a>
+    <!-- Contact -->
+    <section id="contact" class="py-5 bg-light" tabindex="0" aria-label="Contact section">
+      <div class="container">
+        <h2 class="section-title text-center mb-4" data-aos="fade-up">Contact Me</h2>
+        <form class="mx-auto" style="max-width: 600px;" data-aos="fade-up" data-aos-delay="200" aria-label="Contact form">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Your Name" required aria-required="true" />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="your.email@example.com" required aria-required="true" />
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Your message here..." required aria-required="true"></textarea>
+          </div>
+          <button type="submit" class="btn btn-info w-100" aria-label="Send message">Send Message</button>
+        </form>
       </div>
-    </div>
-  </section>
+    </section>
+
+  </main>
 
   <!-- Footer -->
-  <footer class="text-center py-4 bg-dark text-white">
-    <p class="mb-1">© 2025 Elgamily. All rights reserved.</p>
-    <button id="backToTop" title="Back to top" class="btn btn-light mt-2">↑</button>
+  <footer class="text-center">
+    <div class="container py-3">
+      <p>© 2025 Elgamily. All rights reserved.</p>
+      <div class="social-icons mt-2">
+        <a href="https://github.com/elgamilyER9" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+            class="fab fa-github fa-lg"></i></a>
+        <a href="https://linkedin.com/in/elgamily-ramadan" target="_blank" rel="noopener noreferrer"
+          aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="mailto:elgamilyramadan@gmail.com" aria-label="Email"><i class="fas fa-envelope fa-lg"></i></a>
+      </div>
+    </div>
   </footer>
 
-  <!-- Scripts -->
-  <script>
-    const header = document.querySelector("header");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
-        header.classList.add("shrink");
-      } else {
-        header.classList.remove("shrink");
-      }
-    });
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    // Scroll to top button
-    document.getElementById("backToTop").addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  </script>
-
-  <!-- AOS JS -->
+  <!-- AOS Animation JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
       duration: 1000,
       once: true,
-      offset: 100
+      easing: 'ease-in-out',
+    });
+
+    // Shrink header on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 80) {
+        header.classList.add('shrink');
+      } else {
+        header.classList.remove('shrink');
+      }
+    });
+
+    // Navbar active link switching
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+      let fromTop = window.scrollY + 90;
+
+      navLinks.forEach(link => {
+        const section = document.querySelector(link.hash);
+        if (section && section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
     });
   </script>
 
-  <script src="script.js"></script>
 </body>
+
 </html>
